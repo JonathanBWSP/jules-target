@@ -2,6 +2,18 @@
 
 A tiny in-memory priority queue with TTL expiry. Pure Python, no dependencies.
 
+## Installation
+
+```bash
+pip install -e .
+```
+
+To run tests:
+
+```bash
+PYTHONPATH=. pytest
+```
+
 ```python
 from tinyq import TinyQ
 q = TinyQ()
