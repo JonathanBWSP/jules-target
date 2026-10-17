@@ -26,5 +26,16 @@ class TinyQ:
                 return item
         return None
 
+    def peek(self):
+        """Return the highest-priority unexpired item without removing it, or None if empty."""
+        now = self._clock()
+        while self._heap:
+            priority, _, expires, item = self._heap[0]
+            if expires is not None and expires <= now:
+                heapq.heappop(self._heap)
+            else:
+                return item
+        return None
+
     def __len__(self):
         return len(self._heap)
