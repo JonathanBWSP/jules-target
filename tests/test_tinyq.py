@@ -18,3 +18,8 @@ def test_ttl_expiry():
     t[0] = 5.0
     assert q.pop() == "long"
     assert q.pop() is None
+
+
+def test_default_max_size():
+    q = TinyQ()
+    assert q.max_size == 128

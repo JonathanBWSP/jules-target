@@ -7,7 +7,8 @@ __all__ = ["TinyQ"]
 
 
 class TinyQ:
-    def __init__(self, clock=time.monotonic):
+    def __init__(self, max_size=128, clock=time.monotonic):
+        self.max_size = max_size
         self._heap = []
         self._counter = itertools.count()
         self._clock = clock
