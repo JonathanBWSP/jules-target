@@ -7,6 +7,8 @@ __all__ = ["TinyQ"]
 
 
 class TinyQ:
+    """In-memory priority queue with TTL expiry."""
+
     def __init__(self, clock=time.monotonic):
         self._heap = []
         self._counter = itertools.count()
