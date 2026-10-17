@@ -19,10 +19,22 @@ class TinyQ:
 
     def pop(self):
         """Pop the highest-priority unexpired item, or None if empty."""
-        now = self._clock()
-        while self._heap:
-            priority, _, expires, item = heapq.heappop(self._heap)
-            if expires is None or expires > now:
+        heap = self._heap
+        # Fast exit if heap is empty without querying clock
+        if not heap:
+            return None
+
+        now = None
+        clock = self._clock
+        heappop = heapq.heappop
+        while heap:
+            priority, _, expires, item = heappop(heap)
+            # If item has no TTL, avoid reading system clock
+            if expires is None:
+                return item
+            if now is None:
+                now = clock()
+            if expires > now:
                 return item
         return None
 
