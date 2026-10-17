@@ -12,3 +12,7 @@ q.pop()  # -> "job-a"
 Run tests with `python -m pytest`.
 
 Contributions welcome. Open an issue first for anything beyond a small fix.
+
+## License
+
+Released under the [MIT License](LICENSE).
