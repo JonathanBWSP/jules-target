@@ -26,5 +26,10 @@ class TinyQ:
                 return item
         return None
 
+    def size(self):
+        """Return the number of non-expired items in the queue."""
+        now = self._clock()
+        return sum(1 for _, _, expires, _ in self._heap if expires is None or expires > now)
+
     def __len__(self):
         return len(self._heap)
