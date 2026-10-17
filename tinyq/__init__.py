@@ -27,4 +27,5 @@ class TinyQ:
         return None
 
     def __len__(self):
+        """Return the count of items in the queue, including expired-but-not-yet-popped items."""
         return len(self._heap)
