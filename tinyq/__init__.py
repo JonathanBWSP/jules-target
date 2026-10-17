@@ -7,6 +7,8 @@ __all__ = ["TinyQ"]
 
 
 class TinyQ:
+    """In-memory priority queue with TTL expiry."""
+
     def __init__(self, clock=time.monotonic):
         self._heap = []
         self._counter = itertools.count()
@@ -18,7 +20,7 @@ class TinyQ:
         heapq.heappush(self._heap, (priority, next(self._counter), expires, item))
 
     def pop(self):
-        """Pop the highest-priority unexpired item, or None if empty."""
+        """Pop highest-priority unexpired item, or None if empty."""
         now = self._clock()
         while self._heap:
             priority, _, expires, item = heapq.heappop(self._heap)
@@ -27,4 +29,5 @@ class TinyQ:
         return None
 
     def __len__(self):
+        """Return count of items in queue, including expired-but-not-yet-popped items."""
         return len(self._heap)
