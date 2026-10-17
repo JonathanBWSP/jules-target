@@ -28,3 +28,6 @@ class TinyQ:
 
     def __len__(self):
         return len(self._heap)
+
+    def __repr__(self):
+        return f"TinyQ(len={len(self)})"
