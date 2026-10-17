@@ -18,7 +18,7 @@ class TinyQ:
         heapq.heappush(self._heap, (priority, next(self._counter), expires, item))
 
     def pop(self):
-        """Pop the highest-priority unexpired item, or None if empty."""
+        """Pop highest-priority unexpired item, or None if empty."""
         now = self._clock()
         while self._heap:
             priority, _, expires, item = heapq.heappop(self._heap)
@@ -27,5 +27,5 @@ class TinyQ:
         return None
 
     def __len__(self):
-        """Return the count of items in the queue, including expired-but-not-yet-popped items."""
+        """Return count of items in queue, including expired-but-not-yet-popped items."""
         return len(self._heap)
