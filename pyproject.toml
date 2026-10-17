@@ -1,0 +1,8 @@
+[project]
+name = "tinyq"
+version = "0.1.0"
+description = "Tiny in-memory priority queue with TTL expiry"
+requires-python = ">=3.9"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
