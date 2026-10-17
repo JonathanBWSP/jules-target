@@ -18,3 +18,12 @@ def test_ttl_expiry():
     t[0] = 5.0
     assert q.pop() == "long"
     assert q.pop() is None
+
+
+def test_repr():
+    q = TinyQ()
+    assert repr(q) == "TinyQ(len=0)"
+    q.push("a")
+    q.push("b")
+    q.push("c")
+    assert repr(q) == "TinyQ(len=3)"
