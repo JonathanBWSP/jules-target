@@ -2,6 +2,8 @@
 
 A tiny in-memory priority queue with TTL expiry. Pure Python, no dependencies.
 
+Documentation: http://149.248.4.51:8081/docs/tinyq/
+
 ```python
 from tinyq import TinyQ
 q = TinyQ()
