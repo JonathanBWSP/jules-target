@@ -26,5 +26,9 @@ class TinyQ:
                 return item
         return None
 
+    def clear(self):
+        """Remove all items from the queue."""
+        self._heap.clear()
+
     def __len__(self):
         return len(self._heap)
